@@ -2,24 +2,27 @@ package Component;
 
 import java.util.ArrayList;
 
-public class OrdineOnline extends Ordine{
-    private int tavolo;
-    private int surplus;
-    private boolean cash;
+public class OrdineOnline extends Ordine {
+    private String indirizzo = null;
+    private int surplus = 0;
+    private boolean cash = false;
 
-    public OrdineOnline(int priority, ArrayList<Pietanza> pietanze, int tavolo) {
+    public OrdineOnline(int priority, ArrayList<Pietanza> pietanze, String indirizzo, int surplus, boolean cash) {
         super(priority, pietanze);
-        this.tavolo = tavolo;
+        this.indirizzo = indirizzo;
+        this.surplus = surplus;
+        this.cash = cash;
     }
 
     @Override
     public String toString() {
-        return "OrdineOnline{" +
-                "tavolo=" + tavolo +
+        return super.toString() +
+                "OrdineOnline{" +
+                "tavolo=" + indirizzo +
                 '}';
     }
 
-    public int getTavolo() {
-        return tavolo;
+    public String getIndirizzo() {
+        return indirizzo;
     }
 }

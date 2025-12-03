@@ -3,17 +3,13 @@ package Component;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Ordine implements Cloneable, Comparable<Ordine>{
+public class Ordine implements Cloneable, Comparable<Ordine> {
     private static int unique_id = -1;
 
     private int id;
 
-    private ArrayList<Pietanza> pietanze;
-    private int priority;
-
-    public Ordine() {
-        this.id = ++unique_id;
-    }
+    private ArrayList<Pietanza> pietanze = new ArrayList<>();
+    private int priority = 0;
 
     public Ordine(int priority, ArrayList<Pietanza> pietanze) {
         this.id = ++unique_id;
@@ -64,8 +60,7 @@ public class Ordine implements Cloneable, Comparable<Ordine>{
     @Override
     public String toString() {
         return "Ordine{" +
-                "id= " + id +
-                "unique_id=" + unique_id +
+                "id=" + id +
                 ", pietanze=" + pietanze +
                 ", priority=" + priority +
                 '}';
