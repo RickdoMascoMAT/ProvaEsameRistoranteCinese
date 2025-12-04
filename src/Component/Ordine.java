@@ -70,9 +70,7 @@ public class Ordine implements Cloneable, Comparable<Ordine> {
     public Ordine clone() {
         try {
             Ordine clone = (Ordine) super.clone();
-            // assegna un nuovo id univoco al clone
             clone.id = ++unique_id;
-            // copia superficiale della lista per evitare condivisione della lista mutabile
             clone.pietanze = this.pietanze == null ? null : new ArrayList<>(this.pietanze);
             return clone;
         } catch (CloneNotSupportedException e) {

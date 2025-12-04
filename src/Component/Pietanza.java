@@ -1,5 +1,7 @@
 package Component;
 
+import java.util.Objects;
+
 public class Pietanza {
     private String name = null;
     private int quantity = 0;
@@ -38,5 +40,31 @@ public class Pietanza {
 
     public double getCost() {
         return (unitCost * quantity);
+    }
+
+    @Override
+    public String toString() {
+        return "Pietanza{" +
+                "name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", unitCost=" + unitCost +
+                '}';
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Pietanza pietanza = (Pietanza) o;
+        return quantity == pietanza.quantity && Double.compare(unitCost, pietanza.unitCost) == 0 && Objects.equals(name, pietanza.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, quantity, unitCost);
     }
 }
